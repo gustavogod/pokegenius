@@ -47,7 +47,7 @@ let checkOrder = () => {
   }
 
   if(clickedOrder.length == order.length){
-    alert(`Pontuação: ${score}\nVocê acertou! Iniciando próximo nível!`);
+    alert(`Você acertou!\n\nPontuação: ${score}\n\nIniciando próximo nível!`);
     nextLevel();
   }
 }
@@ -98,18 +98,17 @@ let gameOver = () => {
     red.classList.remove('game-over');
     green.classList.remove('game-over');
     yellow.classList.remove('game-over');
-    alert(`Pontuação: ${score-1}!\nVocê perdeu o jogo!\nClique em OK para iniciar um novo jogo`);
-    order = [];
-    clickedOrder = [];
-  
+    alert(`Pontuação: ${score-1}!\n\nVocê perdeu o jogo!\n\nClique em OK para iniciar um novo jogo`);
     startGame();
   }, 2000);
-
+  
 }
 
 let startGame = () => {
-  alert('Bem vindo ao Genius! Iniciando novo jogo!');
+  order = [];
+  clickedOrder = [];
   score = 0;
+  alert('Bem vindo ao Genius! Iniciando novo jogo!');
 
   nextLevel();
 }

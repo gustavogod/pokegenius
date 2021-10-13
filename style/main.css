@@ -82,7 +82,7 @@ header {
   text-decoration: none;
   font-size: 20px;
   color: white;
-  margin-right: 10px;
+  margin-right: 20px;
 }
 
 .header-menu a:hover {
@@ -130,8 +130,8 @@ footer p {
   gap: 10px;
   background-color: var(--gray);
   border-radius: 100%;
-  width: 600px;
-  height: 600px;
+  width: 550px;
+  height: 550px;
   box-shadow: 0px 0px 25px rgb(0 0 0 / 45%);
 }
 
