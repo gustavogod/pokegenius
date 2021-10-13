@@ -4,6 +4,7 @@
   --red: rgb(201, 0, 0);
   --yellow: rgb(209, 209, 0);
   --green: rgb(1, 119, 1);
+  --gameOverColor: rgb(190, 23, 23);
 }
 
 
@@ -22,6 +23,96 @@
 
 body {
   background-color: var(--gray);
+  font-family: 'Roboto Mono', monospace;
+}
+
+.container {
+  display:  flex;
+  flex-direction: column;
+}
+
+header {
+  width: 100%;
+  background-color: rgba(26, 26, 26, 0.9);
+  z-index: 999;
+  box-shadow: 0 5px 10px -3px black;
+}
+
+.menu {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.header-logo {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.img-logo {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  background-image: url('../images/pokegenius-img.png');
+  background-position: center;
+  background-size: cover;
+  border: none;
+  margin: 5px 5px 10px 10px;
+}
+
+.text-logo {
+  color: rgb(238, 0, 0);
+  font-family: 'Teko', sans-serif;
+  font-size: 40px;
+  margin: 0 5px;
+}
+
+.header-logo:hover {
+  cursor: pointer;
+}
+
+.header-logo a {
+  text-decoration: none;
+}
+
+.header-menu a {
+  text-decoration: none;
+  font-size: 20px;
+  color: white;
+  margin-right: 10px;
+}
+
+.header-menu a:hover {
+  color: rgb(255, 152, 152);
+}
+
+footer {
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+footer p {
+  color: black;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.social-media {
+  margin: 10px;
+}
+
+.social-media a {
+  text-decoration: none;
+}
+
+.linkedin, .github {
+  width: 30px;
+  height: 30px;
 }
 
 .main-game {
@@ -46,7 +137,6 @@ body {
 
 .genius-center-img {
   position: absolute;
-  background-color: #000000;
   z-index: 1;
   width: 200px;
   height: 200px;
@@ -91,12 +181,13 @@ body {
 
 .color:hover {
   filter: brightness(200%);
+  cursor: pointer;
 }
 
 
 .selected {
   animation-name: blinkColorGreen;
-  animation-duration: 1s;
+  animation-duration: 500ms;
   animation-timing-function: linear;
 }
 
@@ -126,7 +217,7 @@ body {
     filter: brightness(100%)
   }
   15% {
-    border-color: var(--gray);
+    border-color: var(--gameOverColor);
     filter: brightness(200%)
   }
   30% {
@@ -134,7 +225,7 @@ body {
     filter: brightness(100%);
   }
   45% {
-    border-color: var(--gray);
+    border-color: var(--gameOverColor);
     filter: brightness(200%)
   }
   60% {
@@ -142,7 +233,7 @@ body {
     filter: brightness(100%);
   }
   75% {
-    border-color: var(--gray);
+    border-color: var(--gameOverColor);
     filter: brightness(200%)
   }
   100% {
