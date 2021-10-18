@@ -8,7 +8,7 @@
 
 ## Jogar
 
-Para jogar basta clicar (neste link)[https://gustavogod.github.io/pokegenius/]
+Para jogar basta clicar [neste link](https://gustavogod.github.io/pokegenius/)
 
 ## 🛠 Tecnologias utilizadas:
 
