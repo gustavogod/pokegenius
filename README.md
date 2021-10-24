@@ -6,7 +6,12 @@
 > Projeto desenvolvido durante o curso **Criando seu jogo de memória estilo Genius** da [Digital Innovation One.](https://digitalinnovation.one/) <br>
 > Ao longo do curso foram desenvolvidas as funcionalidades básicas do jogo **GENIUS**. Após a conclusão do curso, uma série de estilizações e animações foram adicionadas, além da inclusão do menu de navegação e do rodapé. <br>
 
-## Jogar
+## Status de desenvolvimento
+A versão disponível nesta branch já está concluída e não deve mais sofrer alterações.
+
+>Uma nova versão, sem o uso de alerts e com uma contagem mais prática e visível da pontuação estará ***em breve*** disponível na branch [react](https://github.com/gustavogod/pokegenius/tree/react). A nova versão está sendo desenvolvida utilizando ReactJS, seguindo boas práticas de componentização e TDD.
+
+## 🕹️ Jogar
 
 Para jogar basta clicar [neste link](https://gustavogod.github.io/pokegenius/)
 
