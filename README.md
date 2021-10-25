@@ -17,9 +17,9 @@ Para jogar basta clicar [neste link](https://gustavogod.github.io/pokegenius/)
 
 ## 🛠 Tecnologias utilizadas:
 
-- HTML
-- CSS
-- JavaScript
+- [HTML](https://html.spec.whatwg.org/multipage/)
+- [CSS](https://www.w3.org/TR/CSS/#css)
+- [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
 
 ## 🧔 Autor
  <img style="border-radius: 100%;" src="https://avatars.githubusercontent.com/u/13698021?v=4" width="100px;" alt="My profile picture"/>
