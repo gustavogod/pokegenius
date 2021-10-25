@@ -1,8 +1,9 @@
+import { GameBoard } from '../../components'
 
 export function App() {
   return (
     <div>
-      lalalala
+      <GameBoard></GameBoard>
     </div>
   );
 }
