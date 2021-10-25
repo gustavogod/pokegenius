@@ -1,11 +1,8 @@
-import logo from './logo.svg';
 
-function App() {
+export function App() {
   return (
     <div>
-      
+      lalalala
     </div>
   );
 }
-
-export default App;
