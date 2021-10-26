@@ -9,7 +9,7 @@
 ## Status de desenvolvimento
 A versão disponível nesta branch já está concluída e não deve mais sofrer alterações.
 
->Uma nova versão, sem o uso de alerts e com uma contagem mais prática e visível da pontuação estará ***em breve*** disponível na branch [react](https://github.com/gustavogod/pokegenius/tree/react). A nova versão está sendo desenvolvida utilizando ReactJS, seguindo boas práticas de componentização e TDD.
+>Uma nova versão, sem o uso de alerts e com uma contagem mais prática e visível da pontuação estará ***em breve*** disponível na branch [react](https://github.com/gustavogod/pokegenius/tree/react). A nova versão está sendo desenvolvida utilizando ReactJS, seguindo boas práticas de componentização.
 
 ## 🕹️ Jogar
 
