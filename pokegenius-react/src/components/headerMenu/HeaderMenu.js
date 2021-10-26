@@ -2,13 +2,15 @@ import styled from 'styled-components';
 import { LinkedElement } from '../../components';
 import { appURL, repositoryURL, pokeImgPath } from '../../commons';
 
+import pokeballImg from '../../img/pokegenius-img.png';
+
 export const HeaderMenu = () => {
 
   return (
     <Header>
       <Menu>
         <HeaderLogo>
-          <a href={appURL}>
+          <a href={appURL} rel="noreferrer">
             <ImgLogo />
           </a>
           <LinkedElement href={appURL}>
@@ -45,6 +47,7 @@ const HeaderLogo = styled.div`
   align-items: center;
 
   a {
+    z-index: 2;
     text-decoration: none;
 
     :hover {
@@ -57,10 +60,10 @@ const ImgLogo = styled.div`
   position: relative;
   width: 30px;
   height: 30px;
-  background-image: url(./pokegenius-img.png);
+  background-image: url(${pokeballImg});
   background-position: center;
   background-size: cover;
-  margin: 0 5px 0 10px;  
+  margin: 0 5px 0 10px;
 `;
 
 const TextLogo = styled.h2`

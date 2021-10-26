@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import { Color } from '../index';
 
 export const GameBoard = () => {
@@ -32,7 +32,7 @@ const CenterImg = styled.div`
   height: 200px;
   border-radius: 100%;
   margin: auto;
-  background-image: url(https:\/\/w7.pngwing.com/pngs/620/521/png-transparent-poke-ball-pokemon-pokemon-rim-mobile-phones-pokemon-thumbnail.png);
+  background-image: url(https:\/\/w7.pngwing.com/pngs/620/521/png-transparent-poke-ball-pokemon-pokemon-rim-mobile-phones-pokemon-thumbnail.png); 
   background-position: center;
   background-size: cover;
   border-style: none;
