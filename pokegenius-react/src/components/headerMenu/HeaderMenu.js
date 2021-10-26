@@ -10,9 +10,9 @@ export const HeaderMenu = () => {
     <Header>
       <Menu>
         <HeaderLogo>
-          <a href={appURL} rel="noreferrer">
+          <LinkedElement href={appURL} rel="noreferrer">
             <ImgLogo />
-          </a>
+          </LinkedElement>
           <LinkedElement href={appURL}>
             <TextLogo>PokeGenius</TextLogo>
           </LinkedElement>
@@ -45,14 +45,6 @@ const HeaderLogo = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-
-  a {
-    z-index: 2;
-    text-decoration: none;
-
-    :hover {
-      cursor: pointer;
-    }
   }
 `;
 
