@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { LinkedElement } from '../../components';
-import { appURL, repositoryURL, pokeImgPath } from '../../commons';
+import { appURL, repositoryURL } from '../../commons';
 
 import pokeballImg from '../../img/pokegenius-img.png';
 
@@ -17,9 +17,9 @@ export const HeaderMenu = () => {
             <TextLogo>PokeGenius</TextLogo>
           </LinkedElement>
         </HeaderLogo>
-        <AboutItem>
-          <a href={repositoryURL} target="_blank">Sobre</a>
-        </AboutItem>
+        <About href={repositoryURL} target="_blank">
+          <p>Sobre</p>
+        </About>
       </Menu>
     </Header>    
   );
@@ -45,7 +45,6 @@ const HeaderLogo = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  }
 `;
 
 const ImgLogo = styled.div`
@@ -65,8 +64,8 @@ const TextLogo = styled.h2`
   margin: 0 5px;  
 `;
 
-const AboutItem = styled.div`
-  a {
+const About = styled.a`
+  p {
     text-decoration: none;
     font-size: 1rem;
     color: white;

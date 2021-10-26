@@ -1,4 +1,4 @@
-import { GameBoard, HeaderMenu } from '../../components'
+import { GameBoard, HeaderMenu, Footer } from '../../components'
 import styled from 'styled-components';
 
 export function App() {
@@ -6,6 +6,7 @@ export function App() {
     <Container>
       <HeaderMenu />
       <GameBoard />
+      <Footer />
     </Container>
   );
 }
