@@ -30,6 +30,7 @@ export const SocialMediaLogo = (props) => {
 
 const LogoLink = styled.a`
   text-decoration: none;
+  margin: 0 5px;
 `;
 
 const ImgLogo = styled.img`

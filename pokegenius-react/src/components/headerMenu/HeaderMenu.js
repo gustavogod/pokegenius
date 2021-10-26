@@ -65,8 +65,9 @@ const TextLogo = styled.h2`
 `;
 
 const About = styled.a`
-  p {
     text-decoration: none;
+    
+  p {
     font-size: 1rem;
     color: white;
     margin-right: 20px;

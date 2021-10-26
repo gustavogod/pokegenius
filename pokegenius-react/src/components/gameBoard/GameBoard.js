@@ -22,7 +22,8 @@ const GeniusBoard = styled.div`
   border-radius: 100%;
   width: 550px;
   height: 550px;
-  box-shadow: 0px 0px 25px rgb(0 0 0 / 45%);  
+  box-shadow: 0px 0px 25px rgb(0 0 0 / 45%);
+  margin: 10px;  
 `;
 
 const CenterImg = styled.div`

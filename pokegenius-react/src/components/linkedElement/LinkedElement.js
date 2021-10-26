@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { string } from 'prop-types';
 
 
 export const LinkedElement = (props) => {
