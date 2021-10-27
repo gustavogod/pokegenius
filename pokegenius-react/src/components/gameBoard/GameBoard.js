@@ -16,7 +16,7 @@ export const GameBoard = () => {
   const colorList = ['green', 'red', 'yellow', 'blue'];
 
   const initPlay = {
-    isDisplay: false,
+    isDisplaying: false,
     colors: [],
     score: 0,
     userPlay: false,
@@ -32,34 +32,82 @@ export const GameBoard = () => {
 
   useEffect(() => {
     if (isOn) {
-      setPlay({...initPlay, isDisplay: true});
+      setPlay({...initPlay, isDisplaying: true});
     } else {
       setPlay(initPlay);
     }
   }, [isOn])
 
   useEffect(() => {
-    if(isOn && play.isDisplay) {
+    if(isOn && play.isDisplaying) {
       let newColor = colorList[Math.floor(Math.random()*4)];
       const copyColors = [ ...play.colors];
       copyColors.push(newColor);
       setPlay({ ...play, colors: copyColors});
     }
-  }, [isOn, play.isDisplay])
+  }, [isOn, play.isDisplaying])
 
   useEffect(() => {
-    if(isOn && play.isDisplay && play.colors.length) {
+    if(isOn && play.isDisplaying && play.colors.length) {
       displayColors();
     }
-  }, [isOn, play.isDisplay, play.colors.length])  
+  }, [isOn, play.isDisplaying, play.colors.length])  
 
   const displayColors = async() => {
+    await timeout(500);
     for (let i = 0; i < play.colors.length; i++) {
       setFlashColor(play.colors[i]);
       await timeout(500);
       setFlashColor("");
       await timeout(500);
+
+      //when it's in the last color
+      if (i === play.colors.length - 1) {
+        const copyColors = [ ...play.colors];
+
+        setPlay({
+          ...play,
+          isDisplaying: false,
+          userPlay: true,
+          userColors: copyColors.reverse()
+        });
+      }
     }
+  }
+
+  const colorClickHandle = async(color) => {
+    if(!play.isDisplaying && play.userPlay) {
+
+      const copyUserColors = [ ...play.userColors];
+      const lastColor = copyUserColors.pop();
+      setFlashColor(color);
+
+      if (color === lastColor) {
+        if (copyUserColors.length) {
+          setPlay({ ...play, userColors: copyUserColors});
+        } else {
+          await timeout(500);
+          setPlay({ 
+            ...play, 
+            isDisplaying:true, 
+            userPlay:false, 
+            score:play.colors.length,
+            userColors:[]
+          });
+        }
+
+      } else {
+        await timeout(500);
+        setPlay({ ...initPlay, score: play.colors.length});
+      }
+
+      await timeout(500);
+      setFlashColor("");
+    }
+  }
+
+  const closeHandle = () => {
+    setIsOn(false);
   }
 
   return (
@@ -69,8 +117,16 @@ export const GameBoard = () => {
       </ScoreBoard>
       <GeniusBoard>
         {
+          isOn && !play.isDisplaying && !play.userPlay && play.score && (
+            <CenterImg className="lost">
+              <p>Final Score: {play.score}</p>
+              <button onClick={closeHandle}>Close</button>
+            </CenterImg>
+          )
+        }
+        {
           colorList && 
-          colorList.map((value, index) => <Color flash={flashColor === value} color={value} /> )
+          colorList.map((value, index) => <Color onClick={() => colorClickHandle(value)} flash={flashColor === value} color={value} /> )
         }
         {
           !isOn && !play.score && (
@@ -80,7 +136,7 @@ export const GameBoard = () => {
           )
         }
         {
-          isOn && (play.isDisplay || play.userPlay) && (
+          isOn && (play.isDisplaying || play.userPlay) && (
             <CenterImg className="score">
               {play.score}
             </CenterImg>

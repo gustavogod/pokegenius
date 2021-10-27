@@ -1,25 +1,15 @@
-import React, { createRef } from 'react';
+import React from 'react';
 import styled, { css } from 'styled-components';
 import { string } from 'prop-types';
 import '../style/animate.css';
 
 export const Color = (props) => {
-  const { color, flash } = props;
-
-  const divColorRef = createRef();
-  const handleClick = () => {
-    const divColor = divColorRef.current;
-    divColor.classList.add('flash');
-    setTimeout(() => {
-      divColor.classList.remove('flash');
-    }, 500)
-  }
+  const { color, flash, onClick } = props;
 
   return (
     <DivColor 
+      onClick={onClick}
       className={`${color} ${flash ? "flash" : ""}`} 
-      onClick={handleClick} 
-      ref={divColorRef} 
     />
   );
 }
