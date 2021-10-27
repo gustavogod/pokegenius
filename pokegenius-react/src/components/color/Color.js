@@ -4,12 +4,12 @@ import { string, bool, func } from 'prop-types';
 import '../style/animate.css';
 
 export const Color = (props) => {
-  const { color, flash, onClick } = props;
+  const { color, flash, onClick, gameOver } = props;
 
   return (
     <DivColor 
       onClick={onClick}
-      className={`${color} ${flash ? "flash" : ""}`} 
+      className={`${color} ${flash ? "flash" : ""} ${gameOver ? "game-over" : ""}`} 
     />
   );
 }
@@ -17,7 +17,8 @@ export const Color = (props) => {
 Color.propTypes = {
   color: string.isRequired,
   flash: bool.isRequired,
-  onClick: func.isRequired
+  onClick: func.isRequired,
+  gameOver: bool.isRequired
 }
 
 const DivColor = styled.div`

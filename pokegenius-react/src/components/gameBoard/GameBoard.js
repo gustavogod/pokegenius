@@ -24,7 +24,9 @@ export const GameBoard = () => {
 
   const [play, setPlay] = useState(initPlay);
   const [flashColor, setFlashColor] = useState("");
-  let scoreRecord = useRef(0);
+
+  const scoreRecord = useRef(0);
+  const gameIsOver = useRef(false);
 
   const startHandle = () => {
     setIsOn(true);
@@ -98,13 +100,15 @@ export const GameBoard = () => {
 
       } else { //game over
 
-        if (play.colors.length > scoreRecord.current) { //update and renders record score
+        if (play.colors.length > scoreRecord.current) { //updates record score
           scoreRecord.current = play.colors.length - 1;
         }
 
-        console.log(`Game Over score:${play.colors.length} record:${scoreRecord}`);
         await timeout(500);
+        gameIsOver.current = true;
         setPlay({ ...initPlay, score: play.colors.length - 1});
+        await timeout(2000);
+        gameIsOver.current = false;
       }
 
       await timeout(500);
@@ -133,7 +137,15 @@ export const GameBoard = () => {
         }
         {
           colorList && 
-          colorList.map((value, index) => <Color key={`${index}`} onClick={() => colorClickHandle(value)} flash={flashColor === value} color={value} /> )
+          colorList.map((value, index) => 
+            <Color 
+              key={`${index}`} 
+              onClick={() => colorClickHandle(value)} 
+              flash={flashColor === value} 
+              color={value}
+              gameOver={gameIsOver.current}
+            /> 
+          )
         }
         {
           !isOn && !play.score && (
