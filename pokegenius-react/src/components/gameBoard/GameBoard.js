@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Color } from '../index';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { timeout } from '../../utils';
 
 
@@ -8,7 +8,6 @@ import { timeout } from '../../utils';
 //1 - vermelho
 //2 - amarelo
 //3 - azul
-
 
 export const GameBoard = () => {
   const [isOn, setIsOn] = useState(false);
@@ -25,6 +24,7 @@ export const GameBoard = () => {
 
   const [play, setPlay] = useState(initPlay);
   const [flashColor, setFlashColor] = useState("");
+  let scoreRecord = useRef(0);
 
   const startHandle = () => {
     setIsOn(true);
@@ -51,7 +51,7 @@ export const GameBoard = () => {
     if(isOn && play.isDisplaying && play.colors.length) {
       displayColors();
     }
-  }, [isOn, play.isDisplaying, play.colors.length])  
+  }, [isOn, play.isDisplaying, play.colors.length])
 
   const displayColors = async() => {
     await timeout(500);
@@ -82,10 +82,10 @@ export const GameBoard = () => {
       const lastColor = copyUserColors.pop();
       setFlashColor(color);
 
-      if (color === lastColor) {
-        if (copyUserColors.length) {
+      if (color === lastColor) { //match de color
+        if (copyUserColors.length) { //still have colors to be matched
           setPlay({ ...play, userColors: copyUserColors});
-        } else {
+        } else { //match all colors
           await timeout(500);
           setPlay({ 
             ...play, 
@@ -96,9 +96,15 @@ export const GameBoard = () => {
           });
         }
 
-      } else {
+      } else { //game over
+
+        if (play.colors.length > scoreRecord.current) { //update and renders record score
+          scoreRecord.current = play.colors.length - 1;
+        }
+
+        console.log(`Game Over score:${play.colors.length} record:${scoreRecord}`);
         await timeout(500);
-        setPlay({ ...initPlay, score: play.colors.length});
+        setPlay({ ...initPlay, score: play.colors.length - 1});
       }
 
       await timeout(500);
@@ -114,11 +120,12 @@ export const GameBoard = () => {
     <Wrapper>
       <ScoreBoard>
         <p>Recorde</p>
+        <p>{`${scoreRecord.current}`}</p>
       </ScoreBoard>
       <GeniusBoard>
         {
           isOn && !play.isDisplaying && !play.userPlay && play.score && (
-            <CenterImg className="lost">
+            <CenterImg >
               <p>Final Score: {play.score}</p>
               <button onClick={closeHandle}>Close</button>
             </CenterImg>
@@ -126,7 +133,7 @@ export const GameBoard = () => {
         }
         {
           colorList && 
-          colorList.map((value, index) => <Color onClick={() => colorClickHandle(value)} flash={flashColor === value} color={value} /> )
+          colorList.map((value, index) => <Color key={`${index}`} onClick={() => colorClickHandle(value)} flash={flashColor === value} color={value} /> )
         }
         {
           !isOn && !play.score && (

@@ -2,6 +2,7 @@ import { GameBoard, HeaderMenu, Footer } from '../../components'
 import styled from 'styled-components';
 
 export function App() {
+  
   return (
     <Container>
       <HeaderMenu />

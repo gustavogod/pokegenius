@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { string } from 'prop-types';
+import { string, bool, func } from 'prop-types';
 import '../style/animate.css';
 
 export const Color = (props) => {
@@ -15,7 +15,9 @@ export const Color = (props) => {
 }
 
 Color.propTypes = {
-  className: string.isRequired
+  color: string.isRequired,
+  flash: bool.isRequired,
+  onClick: func.isRequired
 }
 
 const DivColor = styled.div`
