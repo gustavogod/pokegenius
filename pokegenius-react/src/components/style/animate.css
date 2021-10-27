@@ -1,0 +1,56 @@
+.flash {
+  animation-name: blinkColorGreen;
+  animation-duration: 500ms;
+  animation-timing-function: linear;
+}
+
+.game-over {
+  animation-name: gameOverAnimation;
+  animation-duration: 2s;
+  animation-timing-function: linear;
+}
+
+@keyframes blinkColorGreen {
+  0%   {
+    border-color: currentColor;
+  }
+  50%  {
+    border-color: white;
+    filter: brightness(200%)
+  }
+  100% {
+    border-color: currentColor;
+    filter: brightness(100%);
+  }
+}
+
+@keyframes gameOverAnimation {
+  0% {
+    border-color: black;
+    filter: brightness(100%)
+  }
+  15% {
+    border-color: var(--gameOverColor);
+    filter: brightness(200%)
+  }
+  30% {
+    border-color: black;
+    filter: brightness(100%);
+  }
+  45% {
+    border-color: var(--gameOverColor);
+    filter: brightness(200%)
+  }
+  60% {
+    border-color: black;
+    filter: brightness(100%);
+  }
+  75% {
+    border-color: var(--gameOverColor);
+    filter: brightness(200%)
+  }
+  100% {
+    border-color: black;
+    filter: brightness(100%);
+  }
+}

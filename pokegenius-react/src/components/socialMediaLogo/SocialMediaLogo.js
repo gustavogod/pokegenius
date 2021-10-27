@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { oneOf, string } from 'prop-types';
 
 //This component can be updated to accept other social media logos
 
@@ -26,6 +27,11 @@ export const SocialMediaLogo = (props) => {
       />
     </LogoLink>
   );
+}
+
+SocialMediaLogo.propTypes = {
+  href: string.isRequired,
+  className: oneOf(['linkedin', 'github'])
 }
 
 const LogoLink = styled.a`

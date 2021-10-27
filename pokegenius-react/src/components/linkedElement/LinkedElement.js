@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { string } from 'prop-types';
+import { element, string } from 'prop-types';
 
 
 export const LinkedElement = (props) => {
@@ -10,6 +10,12 @@ export const LinkedElement = (props) => {
       {children}
     </Item>
   );
+}
+
+LinkedElement.propTypes = {
+  href: string.isRequired,
+  target: string,
+  children: element.isRequired
 }
 
 const Item = styled.a`
