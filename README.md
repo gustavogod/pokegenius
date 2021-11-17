@@ -13,7 +13,7 @@ A versão disponível nesta branch já está concluída e não deve mais sofrer 
 
 ## 🕹️ Jogar
 
-Para jogar basta clicar [neste link](https://gustavogod.github.io/dino-game/). Para saltar os obstáculos, basta pressionar barra de espaço ou seta para cima.
+Para jogar basta clicar [neste link](https://gustavogod.github.io/pokegenius/).
 
 ## 🛠 Tecnologias utilizadas:
 
